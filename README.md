@@ -1,1 +1,1 @@
-Chirag Kyal ~ Poftfolio
+Chirag Kyal ~ Portfolio
