@@ -1,2 +1,1 @@
-# chiragkyal
-My Poftfolio
+Chirag Kyal ~ Poftfolio
