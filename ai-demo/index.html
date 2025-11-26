@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo Recording | Chirag Kyal</title>
+
+    <!-- Asciinema Player CSS -->
+    <link rel="stylesheet" type="text/css"
+        href="https://cdn.jsdelivr.net/npm/asciinema-player@latest/dist/bundle/asciinema-player.css" />
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+
+        body {
+            font-family: 'Ubuntu', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            color: #333;
+        }
+
+        .container {
+            text-align: center;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            max-width: 1200px;
+            width: 95%;
+        }
+
+        h1 {
+            margin-bottom: 30px;
+            font-size: 32px;
+        }
+
+        #player-container {
+            margin: 20px auto;
+            max-width: 100%;
+        }
+
+        .info {
+            margin-top: 20px;
+            font-size: 14px;
+            opacity: 0.8;
+        }
+
+        /* Light Theme Styles */
+        @media (prefers-color-scheme: light) {
+            body {
+                background-color: #f4f4f4;
+            }
+
+            .container {
+                background-color: #fff;
+                color: #333;
+            }
+
+            h1 {
+                color: #f39c12;
+            }
+        }
+
+        /* Dark Theme Styles */
+        @media (prefers-color-scheme: dark) {
+            body {
+                background-color: #1e1e1e;
+            }
+
+            .container {
+                background-color: #2c2c2c;
+                color: #f4f4f4;
+            }
+
+            h1 {
+                color: #f39c12;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>Demo Recording</h1>
+
+        <!-- Asciinema Player -->
+        <div id="player-container"></div>
+
+        <div class="info">
+            Use controls to play, pause, and navigate through the recording
+        </div>
+    </div>
+
+    <!-- Asciinema Player JS -->
+    <script src="https://cdn.jsdelivr.net/npm/asciinema-player@latest/dist/bundle/asciinema-player.min.js"></script>
+
+    <script>
+        // Initialize the asciinema player
+        const container = document.getElementById('player-container');
+
+        // Show loading message
+        container.innerHTML = '<p style="padding: 20px;">Loading recording (19MB)...</p>';
+
+        // Initialize player with correct dimensions from the recording
+        try {
+            AsciinemaPlayer.create('./demo.cast', container, {
+                cols: 185,
+                rows: 47,
+                autoPlay: false,
+                loop: false,
+                speed: 1,
+                theme: 'asciinema',
+                fit: 'width',
+                terminalFontSize: 'small'
+            });
+            console.log('Asciinema player initialized successfully');
+        } catch (error) {
+            console.error('Error loading asciinema player:', error);
+            container.innerHTML = '<p style="color: red;">Error loading recording: ' + error + '</p>';
+        }
+    </script>
+
+</body>
+
+</html>
